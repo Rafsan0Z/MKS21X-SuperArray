@@ -26,6 +26,7 @@ public class SuperArray {
 
 	public boolean add(String element) {
 		data[size-1] = element;
+		size++;
 		return true;
 	}
 
@@ -41,7 +42,14 @@ public class SuperArray {
 	}
 
 	public String toStringDebug() {
-
+		String result = "[";
+		for(int i = 0; i <data.length; i++) {
+			result += " " + data[i];
+			if(i != data.length - 1) {
+				result += ",";
+			}
+		}
+		return result + "]";
 	}
 
 	public String get(int index) {
@@ -53,5 +61,8 @@ public class SuperArray {
 		}
 	}
 
-	
+	public String set(int, String) {
+
+	}
+
 }

@@ -79,4 +79,16 @@ public class SuperArray {
 		return result;
 	}
 
+	 public boolean contains(String target) {
+                boolean result = false;
+                for(int i = 0; i < size; i++) {
+                        if(data[i] == target) {
+                                result = true;
+                                i = size + 1;
+                        }
+                }
+                return result;
+        }
+
+
 }

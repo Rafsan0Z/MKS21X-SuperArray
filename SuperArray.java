@@ -116,5 +116,19 @@ public class SuperArray {
 
         }
 
+	 public String remove(int index) {
+                String returnvalue = data[index];
+                String[] newdata = new String[size - 1];
+                for(int i = 0; i <newdata.length ; i++) {
+                        if(i < index) {
+                                newdata[i] = data[i];
+                        }
+                        if(i >= index) {
+                                newdata[i] = data[i-1];
+                        }
+                }
+                data = newdata;
+                return returnvalue;
+        }
 
 }

@@ -112,4 +112,9 @@ public class SuperArray {
                 return index;
         }
 
+	public void add(int index, String element) {
+
+        }
+
+
 }

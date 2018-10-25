@@ -54,15 +54,23 @@ public class SuperArray {
 
 	public String get(int index) {
 		if(index < 0 || index >= size()) {
-			return null;
+			return "Error";
 		}
 		else {
 			return data[index];
 		}
 	}
 
-	public String set(int, String) {
-
+	public String set(int index, String element) {
+		String result;
+		if(index < 0 || index >= size()) {
+			return "Error";
+		}
+		else{
+			result = data[index];
+			data[index] = element;
+		}
+		return result;
 	}
 
 }

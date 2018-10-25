@@ -112,8 +112,20 @@ public class SuperArray {
                 return index;
         }
 
-	public void add(int index, String element) {
+	public void resize() {
+		String[] newdata = new String[size+1];
+		for(int i = 0; i < newdata.length;i++) {
+			if(i == size) {}
+			else {
+				newdata[i] = data[i];
+			}
+		}
+		size++;
+		data = newdata;
+	}
 
+	public void add(int index, String element) {
+		
         }
 
 	 public String remove(int index) {

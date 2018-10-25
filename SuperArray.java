@@ -25,15 +25,21 @@ public class SuperArray {
 	}
 
 	public boolean add(String element) {
-		data[size-1] = element;
-		size++;
-		return true;
+		if(size == data.length) {
+			return true;
+		}
+		else{
+			data[size] = element;
+			size++;
+			return true;
+		}
 	}
 
 	public String toString() {
 		String result = "[";
 		for(int i = 0; i <size ; i++) {
-			result += " " + data[i];
+			if(i==0) {result += data[0];}
+			if(i!=0) {result += " " + data[i];}
 			if( i != size - 1) {
 				result += ",";
 			}
@@ -54,7 +60,7 @@ public class SuperArray {
 
 	public String get(int index) {
 		if(index < 0 || index >= size()) {
-			return "Error";
+			return null;
 		}
 		else {
 			return data[index];
@@ -64,7 +70,7 @@ public class SuperArray {
 	public String set(int index, String element) {
 		String result;
 		if(index < 0 || index >= size()) {
-			return "Error";
+			return null;
 		}
 		else{
 			result = data[index];

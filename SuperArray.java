@@ -136,11 +136,23 @@ public class SuperArray {
                                 newdata[i] = data[i];
                         }
                         if(i >= index) {
-                                newdata[i] = data[i-1];
+                                newdata[i] = data[i+1];
                         }
                 }
                 data = newdata;
+		size--;
                 return returnvalue;
         }
 
+	public boolean remove(String element) {
+		String[] newdata = new String[size-1];
+		if(!contains(element)) {
+			return false;
+		}
+		else {
+			int index = indexOf(element);
+			remove(index);
+			return true;
+		}
+	}
 }

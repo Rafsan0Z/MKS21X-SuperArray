@@ -90,5 +90,26 @@ public class SuperArray {
                 return result;
         }
 
+	public int indexOf(String target) {
+                int index = 0;
+                for(int i = 0; i < size; i++) {
+                        if(data[i] == target) {
+                                index = i;
+                                i = size + 1;
+                        }
+                }
+                return index;
+        }
+
+        public int lastIndexOf(String target) {
+                int index = 0;
+                for(int i = size - 1; i >= 0; i--){
+                        if(data[i] == target) {
+                                index = i;
+                                i = -1;
+                        }
+                }
+                return index;
+        }
 
 }

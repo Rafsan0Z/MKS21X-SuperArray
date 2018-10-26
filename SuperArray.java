@@ -112,8 +112,8 @@ public class SuperArray {
                 return index;
         }
 
-	public void resize() {
-		String[] newdata = new String[size+1];
+	private void resize() {
+		String[] newdata = new String[data.length+1];
 		for(int i = 0; i < newdata.length;i++) {
 			if(i == size) {}
 			else {
@@ -125,12 +125,24 @@ public class SuperArray {
 	}
 
 	public void add(int index, String element) {
-		
+		String[] newdata = new String[data.length+1];
+		if(index > size() || index < 0) {
+			System.out.println("Error");
+		}
+		else{
+			for(int i = 0; i<newdata.length;i++) {
+				if(i < index) {newdata[i] = data[i];}
+				if(i == index) {newdata[i] = element;}
+				if(i > index) {newdata[i] = data[i-1];}
+			}
+			size++;
+			data = newdata;
+		}
         }
 
 	 public String remove(int index) {
                 String returnvalue = data[index];
-                String[] newdata = new String[size - 1];
+                String[] newdata = new String[data.length - 1];
                 for(int i = 0; i <newdata.length ; i++) {
                         if(i < index) {
                                 newdata[i] = data[i];
@@ -145,7 +157,7 @@ public class SuperArray {
         }
 
 	public boolean remove(String element) {
-		String[] newdata = new String[size-1];
+		String[] newdata = new String[data.length-1];
 		if(!contains(element)) {
 			return false;
 		}

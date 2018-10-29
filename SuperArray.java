@@ -7,6 +7,15 @@ public class SuperArray {
 		data = new String[10];
 	}
 
+	public SuperArray(int initialCapacity) {
+		if( initialCapacity < 0) {
+			throw new IllegalArgumentException();
+		}
+		else {	
+			data = new String[initialCapacity];
+		}
+	}
+
 	public void clear() {
 		size = 0;
 	}
@@ -65,7 +74,7 @@ public class SuperArray {
 
 	public String get(int index) {
 		if(index < 0 || index >= size()) {
-			return null;
+			throw new IndexOutOfBoundsException();
 		}
 		else {
 			return data[index];
@@ -75,7 +84,7 @@ public class SuperArray {
 	public String set(int index, String element) {
 		String result;
 		if(index < 0 || index >= size()) {
-			return null;
+			throw new IndexOutOfBoundsException();
 		}
 		else{
 			result = data[index];
@@ -131,7 +140,7 @@ public class SuperArray {
 	public void add(int index, String element) {
 		String[] newdata = new String[data.length+1];
 		if(index > size() || index < 0) {
-			System.out.println("Error");
+			throw new IndexOutOfBoundsException();
 		}
 		else{
 			for(int i = 0; i<newdata.length;i++) {
@@ -171,4 +180,15 @@ public class SuperArray {
 			return true;
 		}
 	}
+
+	public void SubArray(int start, int end) {
+		SuperArray newdata = new SuperArray(end-start+1);
+		int index = 0;
+		for(int i = start; i <= end; i++) {
+			add(data[i]);
+			index++;
+		}
+	}
+
+//	public void reverse()
 }
